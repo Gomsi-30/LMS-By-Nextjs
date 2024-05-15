@@ -10,8 +10,8 @@ import Categform from "./_components/categ-form";
 import Priceform from "./_components/price-form";
 import Attachform from "./_components/attach-form";
 import Chapterform from "./_components/chapter-form";
-
-
+import { Banner } from "@/components/banner";
+import CourseActions from "./_components/course-action";
 export async function loader() {
   const res = await axios.get("http://localhost:3000/api/category");
   return res.data;  // Ensure you return the data part of the response
@@ -69,22 +69,28 @@ const Courseid = ({ params }) => {
     courseData.categoryId,
     // courseData.chapters.some(chap=>chap.isPublished)
   ];
-
+  
   const total = requiredFields.length;
   const completed = requiredFields.filter(Boolean).length;
- 
+  const isComplete = requiredFields.every(Boolean)
   return (
     <div className="flex p-[27px] overflow-hidden gap-[45px] ">
+   
       <div className="flex flex-col gap-3">
+      {!courseData.isPublished && <Banner label="Not published yet. Make sure you completed all the fields!" />}
         <h1 className="text-2xl font-semibold">Course Setup</h1>
         <p>
           Completed Fields: {completed} / {total}
         </p>
-      
       <div className="flex mt-[30px] gap-11 items-center">
         <Settings size={30} />
         <h3 className="text-1xl font-medium">Customize your form</h3>
       </div>
+       <CourseActions
+            disabled={!isComplete}
+            courseid={userid}
+            isPublished={courseData.isPublished}
+            />
       <Titleform course={courseData} />
       <Descrform course={courseData} />
       <Imageform course={courseData} />

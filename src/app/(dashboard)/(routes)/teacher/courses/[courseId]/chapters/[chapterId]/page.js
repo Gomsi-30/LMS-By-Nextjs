@@ -49,30 +49,37 @@ const Chapterid = ({ params }) => {
           <div className="flex gap-2">
             <Link className="flex gap-2" href={`/teacher/courses/${userid}`}>
               <ArrowLeft />
-              <h1> Get back to chapter </h1>
+              <h1 className = "font-medium"> Get back to chapter </h1>
             </Link>
           </div>
-          <h1>Chapter Setup.. {completionText}</h1>
-          <ChapterActions
+  <div  className="flex gap-[40px] m-[30px]">
+      <div className="flex flex-col">
+          <h1 className = "text-2xl font-medium ">Chapter Setup.. {completionText}</h1>
+          <ChapterActions className="mt-[20px]"
             disabled={!isComplete}
             courseid={userid}
             chapterid={chapter._id}
             isPublished={chapter.isPublished}
           />
-          <Chaptertitleform chapter={chapter} id={userid} />
+          <Chaptertitleform className=" mt-[20px]" chapter={chapter} id={userid} />
 
-          <Chapterdescform chapter={chapter} id={userid} />
-          <div className="flex gap-2">
+          <Chapterdescform className=" mt-[20px]" chapter={chapter} id={userid} />
+          <div className="flex gap-2 mt-[20px]">
             <EyeIcon />
-            <h1>Access Settings</h1>
+            <h1 className = "font-medium">Access Settings</h1>
           </div>
-          <Chapteraccess chapter={chapter} id={userid} />
+          <Chapteraccess className=" mt-[20px]" chapter={chapter} id={userid} />
+          </div>
+          <div classNmae="flex flex-col">
           <div className="flex gap-2">
             <CameraIcon />
-            <h2> Add a video</h2>
+            <h2 className = "font-medium"> Add a video</h2>
           </div>
           <Chaptervideo chapter={chapter} id={userid} />
-        </div>
+          </div>
+          </div>
+  </div>
+   
       ) : (
         <p>Loading chapter data...</p>
       )}
