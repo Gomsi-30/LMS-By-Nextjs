@@ -8,6 +8,7 @@ import {
   FormDescription,
   FormMessage,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 // import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Toaster } from "@/components/ui/toaster";
@@ -17,37 +18,32 @@ import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { formatPrice } from "./format-price";
 
 
 // Validation schema using Zod
 const formSchema = z.object({
-  description: z.string().min(4, { message: "Description cannot be empty" }),
+  price: z.string().min(1),
 });
 
-// const course = {
-//   descr: "Introduction to Web Development",
-//   description:
-//     "Learn the basics of HTML, CSS, and JavaScript to build your first website! This course covers everything from setting up your development environment to deploying your site.",
-//   price: 99.99,
-//   isPublished: true,
-// };
 
-const Descrform = ({course}) => {
+
+const Priceform = ({course}) => {
   const {toast} = useToast()
   const [edit, setEdit] = useState(false);
-  const [d, setD] = useState(course.description);
+  const [d, setD] = useState(course.price);
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      description: d,
+      price: d || "",
     },
   });
   const { isSubmitting, isValid } = form.formState;
   const onSubmit = async(values) => {
     // console.log(values);
     const res = await axios.put(`http://localhost:3000/api/courses/${course._id}`,values)
-    setD(res.data.course.description)
-    console.log(res.data.course.description)
+    setD(res.data.course.price)
+   
     toast({
       description:"Updated Succesfully",
     })
@@ -61,7 +57,7 @@ const Descrform = ({course}) => {
         <div className="flex items-center gap-4">
           <div className="rounded-[7px] bg-slate-300 text-black flex justify-center h-[39px] w-[200px] text-center items-center font-medium">
             {" "}
-            Course description
+            Course Price
           </div>
           <Button
             onClick={() => setEdit(!edit)}
@@ -75,11 +71,11 @@ const Descrform = ({course}) => {
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
                 control={form.control}
-                name="description"
+                name="price"
                 render={({ field, fieldState: { error } }) => (
                   <FormItem>
                     <FormControl>
-                      <Textarea disabled={isSubmitting}
+                      <Input disabled={isSubmitting}
                         className="rounded-[7px] w-[306px] border-black"
                         placeholder="e.g This is for your course description. Provide more details here!"
                         {...field}
@@ -107,9 +103,9 @@ const Descrform = ({course}) => {
          :
         <div className="bg-slate-100 w-[306px] h-[30px]"> 
         { d == null ?
-         <i>Please provide a description.</i>
+         <i>Please provide a price.</i>
          :
-         <i>{d}</i>
+         <i>{ formatPrice(d)}</i>
         }
          </div>
         }
@@ -119,4 +115,4 @@ const Descrform = ({course}) => {
   );
 };
 
-export default Descrform;
+export default Priceform;

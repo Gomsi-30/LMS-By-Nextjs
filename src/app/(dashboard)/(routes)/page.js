@@ -1,10 +1,12 @@
-import { Input } from "@/components/ui/input";
+import { decode } from "next-auth/jwt";
+import { cookies } from "next/headers";
 
-// import "@/app/globals.css"
+
 export default function Home() {
+
   return (
     <div>
-       
+       <h2 className="text-2xl font-bold text-blue-500">Welcome to home page</h2>
     </div>
   );
 }

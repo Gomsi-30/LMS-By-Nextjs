@@ -2,7 +2,8 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
-import { CircleUserRound, LogOut } from "lucide-react";
+import { BookAIcon, CircleUserRound, LogOut, SearchIcon } from "lucide-react";
+import { Input } from "./ui/input";
 
 const NavbarRoutes = () => {
   const path = usePathname();
@@ -10,9 +11,7 @@ const NavbarRoutes = () => {
   const isPlayerPage = path.includes("/chapter");
   return (
     <div className="flex items-center">
-      <Button>
-        <CircleUserRound />
-      </Button>
+     
       {isTeacherPage || isPlayerPage ? (
         <Link href="/">
           <Button>
@@ -20,11 +19,14 @@ const NavbarRoutes = () => {
           </Button>
         </Link>
       ) : (
+        <div className="bg-blue-100 w-[175px] rounded-l-[10px] gap-3 flex items-center justify-center h-[34px]">
         <Link href="/teacher/courses">
           <Button>
-            Teacher Mode
+            <h1 className="text-1xl font-semibold">Teacher Mode</h1>
+            <BookAIcon className="ml-[5px]"/>
           </Button>
         </Link>
+        </div>
       )}
     </div>
   );

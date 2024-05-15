@@ -63,7 +63,7 @@ const Titleform = ({course}) => {
           </div>
           <Button
             onClick={() => setEdit(!edit)}
-            className="rounded-[7px] bg-black text-white w-[90px]"
+            className="rounded-[7px] hover:bg-white hover:text-black bg-black text-white w-[90px]"
           >
             {edit ? "Cancel" : "Edit"}
           </Button>
