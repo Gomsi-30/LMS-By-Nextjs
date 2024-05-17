@@ -7,9 +7,6 @@ export const FileUpload = ({ onChange, endpoint }) => {
             onClientUploadComplete={(res) => {
                 onChange(res?.[0].url);
             }}
-            // onUploadError={(error) => {
-            //     // toast.error(error?.message);
-            // }}
         />
     );
 }

@@ -10,7 +10,7 @@ export async function POST(req){
    
     await connectDB();
     const chapter = await Chapter.findOne({_id:id}).populate("muxdatas");
-    console.log(chapter)
+    // console.log(chapter)
     if (!chapter) {
         return NextResponse.json({ message: 'Chapter not found' });
     }

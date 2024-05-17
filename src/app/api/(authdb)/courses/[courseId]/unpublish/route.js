@@ -2,12 +2,11 @@
 import connectDB from "@/lib/db";
 
 import { NextResponse } from "next/server";
-import Course from "@/models/course";
+import Courses from "@/models/course";
 export async function PUT(req,{params}){
     await connectDB();
-    const ans = await Chapter.findByIdAndUpdate(id,{isPublished:false},{new:true})
     const userid = params.courseId; 
    
-ourse
+    const ans = await Courses.findByIdAndUpdate(userid,{isPublished:false},{new:true})
     return NextResponse.json(ans)
 }

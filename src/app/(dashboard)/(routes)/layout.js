@@ -13,9 +13,9 @@ const Layout = ({ children }) => {
         className="fixed shadow-lg bg-fuchsia-100 ml-[260px]"
         style={{ width: "calc(100vw - 260px)" }}
       >
-        <Navbar />
+        <Navbar className="z-[100]"/>
       </div>
-      <main className="pt-[70px] pl-[260px] overflow-hidden"> {children}</main>
+      <main className="pt-[70px] pl-[260px] overflow-hidden z-[-10]"> {children}</main>
     </div>
   );
 };

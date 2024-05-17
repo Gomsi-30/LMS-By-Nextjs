@@ -17,12 +17,22 @@ const Sign = () => {
   const { toast}  = useToast()
 const route = useRouter()
   const handle=async()=>{
+    try{
      const res = await axios.post('http://localhost:3000/api/signin',{name,email,password})
      console.log(res.data)
      toast({
-       description:"Succesfully"
-     })
-     route.push('/')
+      description:"Succesfully"
+    })
+    route.push('/')
+    }catch(e){
+      toast({
+        description:"Invalid Input",
+        variant:"destructive"
+      })
+      console.log(e)
+      route.push('/signup')
+    }
+   
   }
   const handle2 = async () => {
     await signIn("google",{

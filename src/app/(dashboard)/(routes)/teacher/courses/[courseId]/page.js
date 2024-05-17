@@ -12,6 +12,8 @@ import Attachform from "./_components/attach-form";
 import Chapterform from "./_components/chapter-form";
 import { Banner } from "@/components/banner";
 import CourseActions from "./_components/course-action";
+
+
 export async function loader() {
   const res = await axios.get("http://localhost:3000/api/category");
   return res.data;  // Ensure you return the data part of the response
@@ -74,50 +76,58 @@ const Courseid = ({ params }) => {
   const completed = requiredFields.filter(Boolean).length;
   const isComplete = requiredFields.every(Boolean)
   return (
-    <div className="flex p-[27px] overflow-hidden gap-[45px] ">
-   
-      <div className="flex flex-col gap-3">
-      {!courseData.isPublished && <Banner label="Not published yet. Make sure you completed all the fields!" />}
+    <>
+     {!courseData.isPublished && <Banner className="z-[100]" label="Not published yet. Make sure you completed all the fields!" />}
+    <div className="p-[15px]">
+     
+     <div className="flex flex-col gap-[20px] p-[15px]">
+    
         <h1 className="text-2xl font-semibold">Course Setup</h1>
         <p>
           Completed Fields: {completed} / {total}
         </p>
+      
       <div className="flex mt-[30px] gap-11 items-center">
         <Settings size={30} />
         <h3 className="text-1xl font-medium">Customize your form</h3>
       </div>
-       <CourseActions
+      <CourseActions
             disabled={!isComplete}
             courseid={userid}
             isPublished={courseData.isPublished}
             />
+      </div>
+      <div className="flex gap-[30px] p-[20px]">
+      <div className="flex flex-col gap-[20px]">
+      
       <Titleform course={courseData} />
       <Descrform course={courseData} />
       <Imageform course={courseData} />
       </div>
-      <div className="flex mt-[152px] flex-col gap-7">
+      <div className="flex flex-col gap-[20px]">
       <Categform
         course={courseData}
         options={
             c? c : []}
         
       />
-       <div className="flex flex-col">
+      
        <div className="flex mt-[20px] h-[50px] bg-slate-100 gap-11 items-center">
        <FileCheckIcon size={20}/>
        <h1 className="font-semibold">Course Chapters</h1>
        </div>
       <Chapterform  course={courseData}/>
     
+      </div>
+        
+       <div className="flex flex-col gap-[20px]">
        <div className="flex mt-[20px] h-[50px] bg-slate-100 gap-11 items-center">
        <IndianRupeeIcon size={20}/>
        <h1 className="font-semibold">Set your price</h1>
        </div>
-        <div>
-        <Priceform course={courseData}/>
        
-        
-       </div>
+        <Priceform course={courseData}/>
+  
        <div className="flex mt-[20px] h-[50px] bg-slate-100 gap-11 items-center">
          <FileCheckIcon size={20}/>
          <h1 className="font-semibold">Resources & Attachments</h1>
@@ -127,9 +137,8 @@ const Courseid = ({ params }) => {
        </div>
       
       </div>
-     
-     
     </div>
+    </>
   );
 };
 

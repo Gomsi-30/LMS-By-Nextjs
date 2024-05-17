@@ -4,6 +4,13 @@ import  Chapter  from "@/models/chapters";
 import Courses from "@/models/course";
 import connectDB from "@/lib/db";
 
+
+export async function GET(req){
+  await connectDB();
+  const course = await Courses.find({})
+  return NextResponse.json(course, { status: 200 });
+}
+
 export async function POST(req) {
   try {
     await connectDB();
@@ -23,7 +30,7 @@ export async function POST(req) {
       });
 
     // Check the populated course object
-    console.log("Course with Attachments:", course);
+    // console.log("Course with Attachments:", course);
 
     if (!course) {
       return NextResponse.json(

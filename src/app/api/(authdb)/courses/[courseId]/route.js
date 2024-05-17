@@ -15,26 +15,37 @@ export async function DELETE(req,{params}){
     }).populate({
         path: 'chapters',
         populate: {
-            path: 'muxdatas'
+            path: 'muxdatas'  // Ensure 'muxdatas' is the correct path based on your schema
         }
     });
     
-    for(const chapter of course.chapters){
-        if(chapter.muxData.assetId){
-        await mux.video.assets.del(chapter.muxData.assetId)
+    if (course && course.chapters) {
+        for (const chapter of course.chapters) {
+            if (chapter.muxdatas && chapter.muxdatas.assetId) {
+                try {
+                    await mux.video.assets.delete(chapter.muxdatas.assetId);
+                    console.log(`Deleted asset with ID: ${chapter.muxdatas.assetId}`);
+                } catch (error) {
+                    console.error(`Failed to delete asset with ID: ${chapter.muxdatas.assetId}`, error);
+                }
+            }else{
+                console.log("ni hai kuc b")
+            }
+        }
     }
-    }
+    
 
-    const deleted = await Courses.delete({
+    const deleted = await Courses.deleteOne({
          _id:userid
       })
+      console.log(deleted)
     return NextResponse.json(deleted,{status:200})
 }
 
 
 
 export async function PUT(req,{params}){
-    // console.log(params.courseId)
+    
     await connectDB()
     const userid = params.courseId;
     const values = await req.json();

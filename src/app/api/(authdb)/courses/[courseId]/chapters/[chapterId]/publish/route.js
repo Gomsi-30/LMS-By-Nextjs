@@ -2,10 +2,13 @@ import connectDB from "@/lib/db";
 import Chapter from "@/models/chapters";
 import { NextResponse } from "next/server";
 import { MuxData } from "@/models/muxdata";
+
+
 export async function PUT(req,{params}){
     await connectDB();
     const id = params.chapterId;
     const userid = params.courseId; 
+    
     const find = await Chapter.findOne({_id:id})
     const exist = await MuxData.findOne({ chapterId: id });
    if(!find || !exist || !find.title || !find.description || !find.videoUrl){

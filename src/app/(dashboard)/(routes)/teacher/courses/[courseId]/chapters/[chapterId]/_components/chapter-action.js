@@ -20,7 +20,7 @@ const ChapterActions = ({disabled,courseid,chapterid,isPublished}) => {
        toast({
         description:"Published Succesfully",
       })
-       router.refresh()
+      window.location.reload()
       }else{
         const res = await axios.put(`/api/courses/${courseid}/chapters/${chapterid}/unpublish`,)
         console.log(res)
@@ -28,7 +28,7 @@ const ChapterActions = ({disabled,courseid,chapterid,isPublished}) => {
           description:"Unpublished Succesfully",
         })
         router.refresh()
-        router.push(`/teacher/courses/${courseid}`)
+        window.location.reload()
         setL(false)
       }
       }catch{

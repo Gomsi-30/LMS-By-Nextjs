@@ -1,6 +1,8 @@
 "use client"
 import {Trash} from "lucide-react"
 import axios from "axios"
+import { Loader2 } from "lucide-react";
+import {Useconfetti}  from "@/hooks/use-confetti"
 import {useRouter} from "next/navigation"
 import { Toaster } from "@/components/ui/toaster";
 import {useState} from "react"
@@ -8,6 +10,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button"
 import { ConfirmModal } from "@/components/modals/confirm-modal"
 const CourseActions = ({disabled,courseid,isPublished}) => {
+  const confetti = Useconfetti()
     const [l,setL] = useState(false)
     const router = useRouter()
     const {toast} = useToast()
@@ -17,18 +20,22 @@ const CourseActions = ({disabled,courseid,isPublished}) => {
       if(!isPublished){
        const ans =  await axios.put(`/api/courses/${courseid}/publish`)
        console.log(ans)
+       setL(false)
+       confetti.onOpen()
        toast({
         description:"Published Succesfully",
       })
-       router.refresh()
+     
+      console.log("hogya")
+     
+      window.location.reload()
       }else{
         const res = await axios.put(`/api/courses/${courseid}/unpublish`,)
         console.log(res)
         toast({
           description:"Unpublished Succesfully",
         })
-        router.refresh()
-        router.push(`/teacher/courses/${courseid}`)
+        window.location.reload()
         setL(false)
       }
       }catch{
@@ -49,6 +56,10 @@ const CourseActions = ({disabled,courseid,isPublished}) => {
     }
     return ( 
         <div className="flex items-center gap-x-2">
+        {l &&
+         <div className="absolute h-full flex items-center top-0 left-0 right-0 justify-center w-full bg-slate-200 opacity-40">
+      <Loader2 className="animate-spin h-[100px] w-[100px]"/>
+    </div>}
             <Button className="bg-black text-yellow-400" onClick={onClick}
               
                 disabled={disabled || l}

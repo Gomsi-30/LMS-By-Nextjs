@@ -33,6 +33,10 @@ const courseSchema = new mongoose.Schema(
         ref: "Purchase",
       },
     ],
+    users: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users'
+    }
   },
   { timestamps: true }
 );

@@ -14,7 +14,8 @@ export const POST = async(req)=>{
     // already exist
     const existuser = await Users.findOne({email})
     if(existuser){
-        return NextResponse.json({message:"user already exist"},{staus:402})
+        
+        throw new Error("invalid")
     }
 
     // hashing password with bcrypt

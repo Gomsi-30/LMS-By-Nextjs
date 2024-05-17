@@ -15,7 +15,12 @@ const userSchema = new mongoose.Schema({
     },
      googleId:{
         type:String,
-    }
+    },
+     courses:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Courses",
+     }]
+    
 })
 const Users = mongoose.models.Users || mongoose.model("Users",userSchema)
 export default Users;

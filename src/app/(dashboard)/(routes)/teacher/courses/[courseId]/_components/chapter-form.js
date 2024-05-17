@@ -94,7 +94,7 @@ const onEdit = (id)=>{
     {
       update &&
     <div className="absolute h-full flex items-center top-0 left-0 right-0 justify-center w-full bg-slate-200 opacity-40">
-      <Loader2 className="animate-spin mr-[150px]"/>
+      <Loader2 className="animate-spin mr-[200px]"/>
     </div>
     }
       <div className="flex overflow-hidden bg-slate-100 rounded-[10px] flex-col p-[15px] gap-4 w-[380px] ">

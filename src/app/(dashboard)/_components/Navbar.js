@@ -6,8 +6,9 @@ import Image from "next/image";
 
 const Navbar = async() => {
   const session = await auth()
+  console.log(session.user.email)
   return (
-    <div className="flex items-center px-[10px] h-[70px] bg-slate-100">
+    <div className="flex z-[50] items-center px-[10px] h-[70px] bg-slate-100">
       <div className="flex items-center ml-2 border border-transparent outline-none">
         <Input
           className="outline-none h-11 w-[530px]  rounded-l-[10px]"
@@ -31,3 +32,4 @@ const Navbar = async() => {
 };
 
 export default Navbar;
+
