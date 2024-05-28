@@ -12,13 +12,13 @@ const Sign = () => {
       email,
       password,
       redirect: true,
-      callbackUrl: '/' 
+      callbackUrl: '/confirm' 
     });
   };
 
   const handle2 = async () => {
     await signIn("google",{
-      callbackUrl: '/' 
+      callbackUrl: '/confirm' 
     });
   };
 

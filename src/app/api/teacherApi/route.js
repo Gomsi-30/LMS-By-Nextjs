@@ -10,6 +10,6 @@ export async function GET(req){
     const session = await auth()
     const email = session.user.email
     console.log(email)
-    const res = await Users.findOne({email}).populate("courses")
+    const res = await Users.findOne({email}).populate("courses").populate("role")
     return NextResponse.json(res)
 }

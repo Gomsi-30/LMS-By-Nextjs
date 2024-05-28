@@ -10,17 +10,19 @@ const userSchema = new mongoose.Schema({
         requied:true
     },
      password:{
-        type:String, 
-        
+        type:String,        
     },
      googleId:{
         type:String,
     },
+    role:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Role",
+    },
      courses:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Courses",
-     }]
-    
+     }]    
 })
 const Users = mongoose.models.Users || mongoose.model("Users",userSchema)
 export default Users;

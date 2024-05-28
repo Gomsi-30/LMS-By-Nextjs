@@ -5,7 +5,7 @@ import { columns } from "./_components/columns"
 // import { auth } from "@/auth";
 import { Button } from "@/components/ui/button"
 import Link from "next/link";
- import {useEffect,useState} from "react"
+import {useEffect,useState} from "react"
 
 export async function loader(){
      const ans = await axios.get('/api/teacherApi')
@@ -25,8 +25,7 @@ useEffect(() => {
 }, []);
 
 return ( 
-      <> 
-
+      <>       
         <div className="flex justify-end mr-[8px] overflow-hidden">
        
           </div>

@@ -12,7 +12,7 @@ const Signup = () => {
         <Tabs defaultValue="Signup">
           <TabsList className="bg-cyan-500">
             <TabsTrigger className="text-white" value="Signup">Signup</TabsTrigger>
-            <TabsTrigger  className="text-white" value="Signin">Signin</TabsTrigger>
+            <TabsTrigger  className="text-white" value="Signin">Login</TabsTrigger>
           </TabsList>
           <TabsContent className="mt-[15px]" value="Signup">
             Here is a registration form.

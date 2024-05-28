@@ -34,7 +34,7 @@ const Sidebarroutes = ({name}) => {
     const item = path.includes('/teacher') ? items2 : items;
     return ( 
      
-        <div className="mt-[40px] flex flex-col gap-8 ml-[53px]">
+        <div className="mt-[83px] flex flex-col gap-8 ml-[90px]">
            {
             item.map((i)=>(
                 <Sidebaritem

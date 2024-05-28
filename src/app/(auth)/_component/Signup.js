@@ -14,7 +14,7 @@ const Sign = () => {
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
 
-  const { toast}  = useToast()
+const { toast}  = useToast()
 const route = useRouter()
   const handle=async()=>{
     try{
@@ -23,7 +23,7 @@ const route = useRouter()
      toast({
       description:"Succesfully"
     })
-    route.push('/')
+    // route.push('/confirm')
     }catch(e){
       toast({
         description:"Invalid Input",
