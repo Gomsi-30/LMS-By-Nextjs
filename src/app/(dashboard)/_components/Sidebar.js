@@ -3,7 +3,7 @@ import Logo from "./logo";
 
 const Sidebar = ({}) => {
   return (
-    <div>
+    <div className="">
       <Logo />
       <Sidebarroutes />
     </div>

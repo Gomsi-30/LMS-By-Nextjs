@@ -59,7 +59,7 @@ export function DataTable({columns,data}) {
            </Button>
           </Link> 
       </div>
-    <div className="rounded-md border bg-slate-100">
+    <div className="rounded-md border bg-green-200">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

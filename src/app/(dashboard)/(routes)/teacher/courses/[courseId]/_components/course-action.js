@@ -28,7 +28,7 @@ const CourseActions = ({disabled,courseid,isPublished}) => {
      
       console.log("hogya")
      
-      window.location.reload()
+      // window.location.reload()
       }else{
         const res = await axios.put(`/api/courses/${courseid}/unpublish`,)
         console.log(res)

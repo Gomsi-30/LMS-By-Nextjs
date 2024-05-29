@@ -112,23 +112,23 @@ const Courseid = ({ params }) => {
         
       />
       
-       <div className="flex mt-[20px] h-[50px] bg-slate-100 gap-11 items-center">
+       <div className="flex bg-yellow-200 mt-[20px] h-[50px] bg-slate-100 gap-11 items-center">
        <FileCheckIcon size={20}/>
-       <h1 className="font-semibold">Course Chapters</h1>
+       <h1 className="font-semibold ">Course Chapters</h1>
        </div>
       <Chapterform  course={courseData}/>
     
       </div>
         
-       <div className="flex flex-col gap-[20px]">
-       <div className="flex mt-[20px] h-[50px] bg-slate-100 gap-11 items-center">
+       <div className=" flex flex-col gap-[20px]">
+       <div className=" bg-yellow-200 flex mt-[20px] h-[50px]  gap-11 items-center">
        <IndianRupeeIcon size={20}/>
        <h1 className="font-semibold">Set your price</h1>
        </div>
        
         <Priceform course={courseData}/>
   
-       <div className="flex mt-[20px] h-[50px] bg-slate-100 gap-11 items-center">
+       <div className=" flex mt-[20px] h-[50px] bg-yellow-200  gap-11 items-center">
          <FileCheckIcon size={20}/>
          <h1 className="font-semibold">Resources & Attachments</h1>
        </div>

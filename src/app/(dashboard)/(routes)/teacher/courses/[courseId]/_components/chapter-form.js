@@ -97,15 +97,21 @@ const onEdit = (id)=>{
       <Loader2 className="animate-spin mr-[200px]"/>
     </div>
     }
-      <div className="flex overflow-hidden bg-slate-100 rounded-[10px] flex-col p-[15px] gap-4 w-[380px] ">
+      <div className="bg-slate-200 flex overflow-hidden bg-slate-100 rounded-[10px] flex-col p-[15px] gap-4 w-[380px] ">
         <div className="flex items-center gap-4">
-          <div className="rounded-[7px] bg-slate-300 text-black flex justify-center h-[39px] w-[200px] text-center items-center font-medium">
+        <div className="rounded-[4px] bg-blue-500 text-white flex justify-center h-10 w-52 text-center items-center font-medium">
             {" "}
             Chapter Form
           </div>
           <Button
             onClick={() => setEdit(!edit)}
-            className="rounded-[7px] hover:bg-white hover:text-black bg-black text-white w-[90px]"
+            className="relative overflow-hidden rounded-[4px] w-24 transition duration-300"
+            style={{
+              backgroundImage: edit ? 'linear-gradient(to right, #ef4444 50%, #dc2626 50%)' : 'linear-gradient(to right, #34d399 50%, #059669 50%)',
+              backgroundSize: '200% 100%',
+              backgroundPosition: 'right bottom',
+              color: 'white',
+            }}
           >
             {edit ? "Cancel" : "Edit"}
           </Button>

@@ -10,7 +10,7 @@ const items = [{
     href:'/search'
 },
 {
-    label:"Dashboad",
+    label:"Dashboard",
     icon:Layout,
     href:'/'
 }]
