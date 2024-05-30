@@ -3,7 +3,9 @@ const nextConfig = {
     images: {
         remotePatterns: [
           { hostname: 'utfs.io' },
-          {hostname : 'lh3.googleusercontent.com'}  // Assumes HTTP and HTTPS by default
+          {hostname : 'lh3.googleusercontent.com'},
+          {hostname : 'img.freepik.com'}
+          // Assumes HTTP and HTTPS by default
         ]
       }
 };

@@ -6,5 +6,17 @@
     padding: 0;
     box-sizing: border-box;
   } */
-
+  @keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animated-gradient {
+    background: linear-gradient(270deg, #ff8a00, #e52e71, #9b51e0, #f3a183);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 @import "~@uploadthing/react/styles.css"

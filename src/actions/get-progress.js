@@ -10,7 +10,7 @@ export const GetProgress = () => {
   return (
     <div>
       
-      <p>Category ID: {categoryId}</p>
+      {/* <p>Category ID: {categoryId}</p> */}
     </div>
   );
 };
