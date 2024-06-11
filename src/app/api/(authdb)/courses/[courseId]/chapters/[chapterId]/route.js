@@ -5,7 +5,7 @@ import Mux from '@mux/mux-node';
 import Chapter from "@/models/chapters";
 
 const mux = new Mux({
-    tokenId: process.env.MUX_TOKEN_ID,
+    tokenId: process.env.TOKEN_ID,
     tokenSecret: process.env.MUX_TOKEN_SECRET
 });
 
@@ -24,8 +24,8 @@ export async function DELETE(req, { params }) {
         }
         const res = await Chapter.deleteOne({ _id: id });
         if (!res.deletedCount) {
-            await Course.findByIdAndUpdate(userid, { isPublished: false }, { new: true });
-        }
+            await Course.findByIdAndUpdate(userid, { isPublished: false }, { new: true });  
+        } 
         console.log(res);
         return NextResponse.json(res);
     } catch (error) {
