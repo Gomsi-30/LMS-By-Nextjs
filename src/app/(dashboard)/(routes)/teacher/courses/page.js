@@ -14,8 +14,9 @@ export async function loader(){
      return ans;
 }
 
-const Courses = () => {
+const Courses = ({params}) => {
 const [course,setCourse] = useState()
+const userid = params.courseId
 const router = useRouter()
 useEffect(() => {
   console.log("use effect cal....")
@@ -25,7 +26,7 @@ useEffect(() => {
     setCourse(ans.data.courses)
   }
   fetchData();
-},[course]);
+},[userid]);
    
 const handleLogout = async () => {
   await signOut({ redirect: false, callbackUrl: '/signup' });
