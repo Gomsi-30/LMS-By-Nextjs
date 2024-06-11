@@ -9,7 +9,7 @@ const Logo = () => {
         </div>
         <div class="relative items-center mt-[123px]">
 
-        <Image class =" absolute bottom-[6px]  " src="https://www.svgrepo.com/show/475371/light-bulb.svg" alt="Image" />
+        <Image class =" absolute bottom-[12px]  " src="https://www.svgrepo.com/show/475371/light-bulb.svg" alt="Image" width={120} height={120} />
         <h1 class ="font-bold text-[20px]  text-blue-500  ">EEP LEARNING</h1>
         </div>
         </div>
