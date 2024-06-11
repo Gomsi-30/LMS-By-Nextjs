@@ -11,7 +11,7 @@ const Confirm = () => {
   const [ans, setAns] = useState("");
   const handleSubmit = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/api/role", { role });
+      const res = await axios.post("api/role", { role });
       console.log(res.data.role);
       setAns(res.data.role);
 
