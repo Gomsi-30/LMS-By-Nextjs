@@ -43,7 +43,7 @@ const Titleform = ({course}) => {
   const { isSubmitting, isValid } = form.formState;
   const onSubmit = async(values) => {
     // console.log(values);
-    const res = await axios.put(`http://localhost:3000/api/courses/${course._id}`,values)
+    const res = await axios.put(`/api/courses/${course._id}`,values)
     setT(res.data.course.title)
     console.log(res.data.course.title)
     toast({

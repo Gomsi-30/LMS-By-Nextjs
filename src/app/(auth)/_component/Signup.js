@@ -20,7 +20,7 @@ const Sign = () => {
   const route = useRouter();
   const handle = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/api/signin", {
+      const res = await axios.post("/api/signin", {
         name,
         email,
         password,

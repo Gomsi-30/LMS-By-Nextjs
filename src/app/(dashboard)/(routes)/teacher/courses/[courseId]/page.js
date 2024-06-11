@@ -16,7 +16,7 @@ import Link from "next/link";
 
 
 export async function loader() {
-  const res = await axios.get("http://localhost:3000/api/category");
+  const res = await axios.get("/api/category");
   return res.data;  // Ensure you return the data part of the response
 }
 

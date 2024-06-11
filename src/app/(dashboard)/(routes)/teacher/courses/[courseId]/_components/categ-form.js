@@ -38,7 +38,7 @@ const Categform = ({course,options=[]}) => {
   const { handleSubmit, formState: { isSubmitting, isValid }, control } = form;
   const onSubmit = async(values) => {
     // console.log(values);
-    const res = await axios.put(`http://localhost:3000/api/courses/${course._id}`,values)
+    const res = await axios.put(`/api/courses/${course._id}`,values)
     setD(res.data.course.categoryId)
     console.log(res.data.course.categoryId)
     toast({

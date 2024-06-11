@@ -45,7 +45,7 @@ const Descrform = ({course}) => {
   const { isSubmitting, isValid } = form.formState;
   const onSubmit = async(values) => {
     // console.log(values);
-    const res = await axios.put(`http://localhost:3000/api/courses/${course._id}`,values)
+    const res = await axios.put(`/api/courses/${course._id}`,values)
     setD(res.data.course.description)
     console.log(res.data.course.description)
     toast({

@@ -17,7 +17,7 @@ const Chapterid = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.post("http://localhost:3000/api/chapterdata", {
+        const res = await axios.post("/api/chapterdata", {
           id,
           userid,
         });

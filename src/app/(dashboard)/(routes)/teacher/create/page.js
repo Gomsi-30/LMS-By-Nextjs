@@ -44,7 +44,7 @@ const Create = () => {
     console.log(values);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/courses",
+        "/api/courses",
         values
       );
       toast({

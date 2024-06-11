@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 export function middleware(req) {
   const { cookies } = req;
-  const token = cookies.get('__Secure-authjs.session-token'); // Assume auth token is stored in cookies
+  const token = cookies.get('authjs.session-token'); // Assume auth token is stored in cookies
   console.log(token)
   const url = req.nextUrl.clone();
 

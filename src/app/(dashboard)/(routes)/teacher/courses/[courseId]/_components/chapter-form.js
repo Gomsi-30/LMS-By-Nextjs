@@ -46,7 +46,7 @@ const Chapterform = ({course}) => {
 
   const onSubmit = async(values) => {
     console.log(values);
-    const res = await axios.post(`http://localhost:3000/api/courses/${course._id}/chapters`,values)
+    const res = await axios.post(`/api/courses/${course._id}/chapters`,values)
     setD(res.data.chapters)
     console.log(res.data)
     toast({

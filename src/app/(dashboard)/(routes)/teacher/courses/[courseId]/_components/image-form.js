@@ -22,7 +22,7 @@ const Imageform = ({ course }) => {
   const [d, setD] = useState(course.imageUrl); // State to hold the current image URL
 
   const onImageUpload = async(url) => {
-    const res = await axios.put(`http://localhost:3000/api/courses/${course._id}`,{imageUrl:url})
+    const res = await axios.put(`/api/courses/${course._id}`,{imageUrl:url})
       setD(res.data.course.imageUrl)
       toast({
         description: "Image added succesfullly",

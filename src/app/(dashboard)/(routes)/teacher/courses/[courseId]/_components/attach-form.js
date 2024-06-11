@@ -21,7 +21,7 @@ const Attachform = ({ course }) => {
 //   const [e, setE] = useState();
   const call=async(idd)=>{
     console.log(idd)
-    const res = await axios.post(`http://localhost:3000/api/courses/${course._id}/attachments/${idd}`,{idd})
+    const res = await axios.post(`/api/courses/${course._id}/attachments/${idd}`,{idd})
     console.log(res.data)
     setD(res.data.attachments)
     toast({
@@ -29,7 +29,7 @@ const Attachform = ({ course }) => {
     });
   }
   const onImageUpload = async(url) => {
-    const res = await axios.post(`http://localhost:3000/api/courses/${course._id}/attachments`,{url})
+    const res = await axios.post(`/api/courses/${course._id}/attachments`,{url})
       setD(res.data.attachments)
     //   console.log(res.data.attachments)
     //   setD(res.data.url)
