@@ -49,6 +49,34 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: "/signup",
   },
+  cookies: {
+    sessionToken: {
+      name: '__Secure-authjs.session-token',
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      },
+    },
+    callbackUrl: {
+      name: '__Secure-authjs.callback-url',
+      options: {
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      },
+    },
+    csrfToken: {
+      name: '__Secure-authjs.csrf-token',
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      },
+    },
+  },
   callbacks: {
     signIn: async ({ user, account, profile }) => {
       await connectDB();
