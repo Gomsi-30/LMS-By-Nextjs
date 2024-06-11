@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast"
 import { signIn } from "next-auth/react";
+import { EyeOff } from 'lucide-react';
 import axios from "axios";
 
 import Image from "next/image"
@@ -11,8 +12,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 const Sign = () => {
   const [name,setName] = useState("")
+  const [show,setShow] = useState(false)
   const [email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
+  const [password,setPassword] = useState("")``````
 
 const { toast}  = useToast()
 const route = useRouter()
@@ -44,10 +46,14 @@ const route = useRouter()
     })
   };
 
+  const handle3 = async () => {
+    setShow(!show)
+  };
+
   return (
     <div className="mt-[19px]">
       <div className="flex flex-col w-[300px] gap-5">
-      
+     
         <Input
         value={name} onChange={(e)=>setName(e.target.value)}
           className="w-[320px]"
@@ -60,12 +66,35 @@ const route = useRouter()
           type="email"
           placeholder="Enter your email"
         />
+      {
+        !show 
+        ?   
         <Input
         value={password} onChange={(e)=>setPassword(e.target.value)}
           className="w-[320px]"
           type="password"
           placeholder="Enter your password"
         />
+        :
+        <Input
+        value={password} onChange={(e)=>setPassword(e.target.value)}
+          className="w-[320px]"
+          type="text"
+          placeholder="Enter your password"
+        />
+      }
+
+
+     
+
+      <div className="bg-slate-200"> 
+      <Button className="absolute top-[337px] left-[800px]" onClick={handle3}>Show</Button> 
+      </div>
+
+
+
+
+
         <Button 
         onClick={handle}
         

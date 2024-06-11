@@ -17,8 +17,8 @@ const Sign = () => {
   };
 
   const handle2 = async () => {
-    await signIn("google",{
-      callbackUrl: '/confirm' 
+    await signIn('google', {
+      callbackUrl: '/confirm', 
     });
   };
 
