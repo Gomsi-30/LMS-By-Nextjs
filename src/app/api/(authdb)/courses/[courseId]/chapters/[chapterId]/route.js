@@ -5,7 +5,7 @@ import Mux from '@mux/mux-node';
 import Chapter from "@/models/chapters";
 
 const mux = new Mux({
-    tokenId: process.env.TOKEN_ID,
+    tokenId: process.env.MUX_TOKEN_ID,
     tokenSecret: process.env.MUX_TOKEN_SECRET
 });
 
