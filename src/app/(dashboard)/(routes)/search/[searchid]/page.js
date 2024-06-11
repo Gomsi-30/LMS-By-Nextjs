@@ -105,7 +105,7 @@ const CourseDetailsPage = ({ params }) => {
      {course.title} 
     </h1>
     <div className="relative h-80 overflow-hidden rounded-lg shadow-md mb-6">
-      <img
+      <Image
         src={course.imageUrl}
         alt={course.title}
         className="object-repeat w-full h-full"
