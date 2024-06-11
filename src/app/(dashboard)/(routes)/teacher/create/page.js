@@ -52,12 +52,7 @@ const Create = () => {
       });
       route.push(`/teacher/courses/${response.data._id}`);
     } catch (e) {
-      if (e) {
-        // toast({
-        //   description: "Something went wrong",
-        //   variant:"destructive"
-        // });
-      }
+    
     }
   };
 
@@ -66,7 +61,7 @@ const Create = () => {
       <div className="">
         <h1 className="text-3xl font-bold">Name your course</h1>
         <p className="mt-[20px]">
-          What would you like to name your course? Don't worry, you can change
+          What would you like to name your course? Dont worry, you can change
           this later.
         </p>
 
