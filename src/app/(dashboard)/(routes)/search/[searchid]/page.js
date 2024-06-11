@@ -54,7 +54,7 @@ const ChapterItem = ({ chapter }) => {
       ) : (
         <div className="relative w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center mt-2">
           <div className="absolute inset-0 rounded-lg overflow-hidden">
-            <img
+            <Image
               src={chapter.videoUrl}
               alt={chapter.title}
               className="object-cover w-full h-full opacity-50"

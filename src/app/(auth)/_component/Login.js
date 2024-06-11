@@ -71,7 +71,7 @@ const Sign = () => {
      
       <Button onCLick={handle2}  className="flex gap-2 bg-cyan-500 w-[320px]"> 
       Sigup with Google
-      <Image src="/google.svg" height={20} width={20} />
+      <Image src="/google.svg" height={20} width={20} alt="" />
       </Button>
      
     </div>
