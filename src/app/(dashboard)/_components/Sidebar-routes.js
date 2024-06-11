@@ -9,11 +9,12 @@ const items = [{
     icon:FileSearch,
     href:'/search'
 },
-{
-    label:"Dashboard",
-    icon:Layout,
-    href:'/'
-}]
+// {
+//     label:"Dashboard",
+//     icon:Layout,
+//     href:'/'
+// }
+]
 
 
 const items2 = [
@@ -22,11 +23,7 @@ const items2 = [
     icon:BookText,
     href:'/teacher/courses'
 },
-{
-    label:"Analytics",
-    icon:BarChart,
-    href:'/teacher/analytics'
-}
+
 ]
 
 const Sidebarroutes = ({name}) => {

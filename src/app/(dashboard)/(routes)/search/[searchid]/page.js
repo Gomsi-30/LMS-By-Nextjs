@@ -7,6 +7,8 @@ import { FaLock } from 'react-icons/fa';
 import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai';
 import Typing from 'react-typing-effect';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 
 const ChapterItem = ({ chapter }) => {
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
@@ -17,6 +19,7 @@ const ChapterItem = ({ chapter }) => {
 
   return (
     <div className="p-4 bg-gray-100 rounded-lg mb-4 shadow-md relative">
+       
       <h3 className="text-lg font-semibold mb-2 animated-gradient">
         <Typing speed={20} eraseSpeed={20} text={chapter.title} />
       </h3>
@@ -92,7 +95,13 @@ const CourseDetailsPage = ({ params }) => {
 
   return (
     <div className="container mx-auto py-8">
-    <h1 className="text-4xl font-bold mb-6 animated-gradient leading-tight">
+       <div className="flex gap-2">
+            <Link className="flex gap-2" href={`/search`}>
+              <ArrowLeft />
+              <h1 className = "font-medium"> Get back to courses </h1>
+            </Link>
+          </div>
+    <h1 className="text-4xl mt-[10px] font-bold mb-6 animated-gradient leading-tight">
      {course.title} 
     </h1>
     <div className="relative h-80 overflow-hidden rounded-lg shadow-md mb-6">

@@ -3,7 +3,7 @@ import Image from "next/image";
 const Logo = () => {
     return ( 
     <div>
-        <div class = " max-w-[200px] h-[120px] mx-auto  text-center bg-white flex justify-center items-center ">
+        <div class = " max-w-[200px] h-[120px] mx-auto  text-center bg-violet-300  flex justify-center items-center ">
         <div>
         <h1 class =" text-[80px] mt-[81px] text-blue-500 ">K</h1>
         </div>

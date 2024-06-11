@@ -60,7 +60,14 @@ const Chapterdescform = ({chapter,id}) => {
                     <Button
                         onClick={() => setEdit(!edit)}
                         className={`rounded-[4px] ${edit ? 'bg-red-500 hover:bg-red-600' : 'bg-black hover:from-black hover:to-gray-500 bg-gradient-to-r'} text-white w-[90px] transition-all duration-300`}
+                        style={{
+                            backgroundImage: edit ? 'linear-gradient(to right, #ef4444 50%, #dc2626 50%)' : 'linear-gradient(to right, #34d399 50%, #059669 50%)',
+                            backgroundSize: '200% 100%',
+                            backgroundPosition: 'right bottom',
+                            color: 'white'
+                        }}
                     >
+
                         {edit ? "Cancel" : "Edit"}
                     </Button>
                 </div>

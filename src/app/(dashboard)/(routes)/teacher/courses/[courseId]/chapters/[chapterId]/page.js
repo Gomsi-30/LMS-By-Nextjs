@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Chapteraccess from "./_components/chapter-access";
+// import Chapteraccess from "./_components/chapter-access";
 import Chaptervideo from "./_components/chapter-video";
 import Chaptertitleform from "./_components/chapter-title-form";
 import Chapterdescform from "./_components/chapter-desc-form";
@@ -64,11 +64,11 @@ const Chapterid = ({ params }) => {
           <Chaptertitleform className=" mt-[20px]" chapter={chapter} id={userid} />
 
           <Chapterdescform className=" mt-[20px]" chapter={chapter} id={userid} />
-          <div className="flex gap-2 mt-[20px]">
+          {/* <div className="flex gap-2 mt-[20px]">
             <EyeIcon />
             <h1 className = "font-medium">Access Settings</h1>
           </div>
-          <Chapteraccess className=" mt-[20px]" chapter={chapter} id={userid} />
+          <Chapteraccess className=" mt-[20px]" chapter={chapter} id={userid} /> */}
           </div>
           <div classNmae="flex flex-col">
           <div className="flex gap-2">

@@ -1,10 +1,13 @@
 "use client";
+
 import axios from "axios";
+// import { auth } from "@/auth";
 import {Categories} from "./_components/categories"
 import { useEffect, useState } from "react";
 import Link from 'next/link';
 import Image from 'next/image';
-
+import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export async function loader() {
     const res = await axios.get("http://localhost:3000/api/category");
@@ -28,7 +31,7 @@ const CourseCard = ({ course }) => (
       <div className="p-4">
         <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
         <p className="text-gray-600">{course.description}</p>
-        <p className="text-gray-800 mt-2">${course.price}</p>
+        {/* <p className="text-gray-800 mt-2">${course.price}</p> */}
       </div>
     </Link>
   );
@@ -36,7 +39,7 @@ const CourseCard = ({ course }) => (
 
 const Search = () => {
     const [courses, setCourses] = useState([]);
-
+    const router = useRouter()
     useEffect(() => {
       const fetchCourses = async () => {
         try {
@@ -65,12 +68,24 @@ const Search = () => {
         fetchData();
     },[])
 
+     
+  const handleLogout = async () => {
+    await signOut({ redirect: false, callbackUrl: '/signup' });
+    router.push('/signup')
+  };
+
     return ( 
         <div>
         {categ ? 
             <Categories data={categ}/> :<p> loading...</p>
         }
     <div className="container mx-auto py-8">
+    <button 
+      onClick={handleLogout}
+      className="ml-[1100px] bg-blue-500 text-white font-bold py-2 px-4 rounded"
+    >
+      Logout
+    </button>
       <h1 className="text-3xl font-semibold mb-4">Courses</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {courses.map((course) => (

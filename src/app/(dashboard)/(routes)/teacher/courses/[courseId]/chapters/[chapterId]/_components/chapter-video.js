@@ -35,7 +35,7 @@ const Chaptervideo = ({ chapter,id }) => {
    <div className="flex flex-col mt-5">
     <div className="flex overflow-hidden bg-white rounded-[10px] flex-col p-4 gap-4 w-[380px] shadow-lg">
         <div className="flex items-center gap-4">
-            <div className="rounded-[7px] bg-slate-300 text-black flex justify-center h-[39px] w-[200px] text-center items-center font-medium">
+        <div className=" rounded-[4px] bg-blue-500 text-white flex items-center justify-center h-[39px] w-[220px] text-center items-center font-medium">
                 Course Video
             </div>
             <Button

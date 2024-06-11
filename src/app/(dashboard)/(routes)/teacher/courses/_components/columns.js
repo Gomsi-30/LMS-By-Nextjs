@@ -27,28 +27,28 @@ export const columns = [
       );
     },
   },
-  {
-    accessorKey: "price",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Price
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-    cell:({row})=>{
-      const price = parseFloat(row.getValue("price") || "0");
-      const formatted = new Intl.NumberFormat("en-US",{
-        style:"currency",
-        currency:"USD"
-      }).format(price)
-      return <div className="ml-[15px]" >{formatted}</div>
-      }
-    },
+  // {
+  //   accessorKey: "price",
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         variant="ghost"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+  //       >
+  //         Price
+  //         <ArrowUpDown className="ml-2 h-4 w-4" />
+  //       </Button>
+  //     );
+  //   },
+  //   cell:({row})=>{
+  //     const price = parseFloat(row.getValue("price") || "0");
+  //     const formatted = new Intl.NumberFormat("en-US",{
+  //       style:"currency",
+  //       currency:"USD"
+  //     }).format(price)
+  //     return <div className="ml-[15px]" >{formatted}</div>
+  //     }
+  //   },
   {
     accessorKey: "_id",
     header: ({ column }) => {

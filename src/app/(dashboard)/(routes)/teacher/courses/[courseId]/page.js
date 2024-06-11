@@ -3,15 +3,16 @@ import axios from "axios";
 import { useLoaderData } from "next/navigation";
 import { useEffect, useState } from "react";
 import Titleform from "./_components/title-form";
-import { FileCheckIcon, IndianRupeeIcon, Settings } from "lucide-react";
+import { ArrowLeft, FileCheckIcon, IndianRupeeIcon, Settings } from "lucide-react";
 import Descrform from "./_components/descr-form";
 import Imageform from "./_components/image-form";
 import Categform from "./_components/categ-form";
-import Priceform from "./_components/price-form";
+// import Priceform from "./_components/price-form";
 import Attachform from "./_components/attach-form";
 import Chapterform from "./_components/chapter-form";
 import { Banner } from "@/components/banner";
 import CourseActions from "./_components/course-action";
+import Link from "next/link";
 
 
 export async function loader() {
@@ -79,7 +80,12 @@ const Courseid = ({ params }) => {
     <>
      {!courseData.isPublished && <Banner className="z-[100]" label="Not published yet. Make sure you completed all the fields!" />}
     <div className="p-[15px]">
-     
+    <div className="flex gap-2">
+            <Link className="flex gap-2" href={`/teacher/courses`}>
+              <ArrowLeft />
+              <h1 className = "font-medium"> Get back to courses </h1>
+            </Link>
+          </div>
      <div className="flex flex-col gap-[20px] p-[15px]">
     
         <h1 className="text-2xl font-semibold">Course Setup</h1>
@@ -121,12 +127,12 @@ const Courseid = ({ params }) => {
       </div>
         
        <div className=" flex flex-col gap-[20px]">
-       <div className=" bg-yellow-200 flex mt-[20px] h-[50px]  gap-11 items-center">
+       {/* <div className=" bg-yellow-200 flex mt-[20px] h-[50px]  gap-11 items-center">
        <IndianRupeeIcon size={20}/>
        <h1 className="font-semibold">Set your price</h1>
        </div>
        
-        <Priceform course={courseData}/>
+        <Priceform course={courseData}/> */}
   
        <div className=" flex mt-[20px] h-[50px] bg-yellow-200  gap-11 items-center">
          <FileCheckIcon size={20}/>

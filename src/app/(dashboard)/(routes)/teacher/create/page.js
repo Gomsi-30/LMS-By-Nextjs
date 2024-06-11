@@ -53,10 +53,10 @@ const Create = () => {
       route.push(`/teacher/courses/${response.data._id}`);
     } catch (e) {
       if (e) {
-        toast({
-          description: "Something went wrong",
-          variant:"destructive"
-        });
+        // toast({
+        //   description: "Something went wrong",
+        //   variant:"destructive"
+        // });
       }
     }
   };
