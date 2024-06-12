@@ -19,7 +19,6 @@ const ChapterItem = ({ chapter }) => {
 
   return (
     <div className="p-4 bg-gray-100 rounded-lg mb-4 shadow-md relative">
-       
       <h3 className="text-lg font-semibold mb-2 animated-gradient">
         <Typing speed={20} eraseSpeed={20} text={chapter.title} />
       </h3>
@@ -95,32 +94,47 @@ const CourseDetailsPage = ({ params }) => {
 
   return (
     <div className="container mx-auto py-8">
-       <div className="flex gap-2">
-            <Link className="flex gap-2" href={`/search`}>
-              <ArrowLeft />
-              <h1 className = "font-medium"> Get back to courses </h1>
-            </Link>
-          </div>
-    <h1 className="text-4xl mt-[10px] font-bold mb-6 animated-gradient leading-tight">
-     {course.title} 
-    </h1>
-    <div className="relative h-80 overflow-hidden rounded-lg shadow-md mb-6">
-      <Image
-        src={course.imageUrl}
-        alt={course.title}
-        className="object-repeat w-full h-full"
-      />
-    </div>
-    <p className="mt-[55px] text-1xl font-semibold mb-6 animated-gradient">
-       {course.description}
+      <div className="flex gap-2">
+        <Link className="flex gap-2" href={`/search`}>
+          <ArrowLeft />
+          <h1 className="font-medium">Get back to courses</h1>
+        </Link>
+      </div>
+      <h1 className="text-4xl mt-[10px] font-bold mb-6 animated-gradient leading-tight">
+        {course.title}
+      </h1>
+      <div className="relative h-80 overflow-hidden rounded-lg shadow-md mb-6">
+        <Image
+          src={course.imageUrl}
+          alt={course.title}
+          className="object-repeat w-full h-full"
+        />
+      </div>
+      <p className="mt-[55px] text-1xl font-semibold mb-6 animated-gradient">
+        {course.description}
       </p>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {course.chapters.map((chapter) => (
-        <ChapterItem key={chapter._id} chapter={chapter} />
-      ))}
+      {course.attachments && course.attachments.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-2xl font-semibold mb-4 animated-gradient">Attachments</h2>
+          <ul>
+            {course.attachments.map((attachment, index) => (
+              <li key={index} className="mb-2">
+                <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                  {attachment.name || attachment.url}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {course.chapters.map((chapter) => (
+          <ChapterItem key={chapter._id} chapter={chapter} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default CourseDetailsPage;
+
