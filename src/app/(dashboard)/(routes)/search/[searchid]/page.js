@@ -106,7 +106,7 @@ const CourseDetailsPage = ({ params }) => {
           <ul>
             {course.attachments.map((attachment) => (
               <li key={attachment._id} className="mb-2">
-                <Link href={attachment.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                <Link href={attachment.url} className="text-blue-600 underline">
                   {attachment.name}
                 </Link>
               </li>
