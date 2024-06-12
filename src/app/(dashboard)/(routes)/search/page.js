@@ -1,4 +1,3 @@
-"use client";
 import axios from "axios";
 import { Categories } from "./_components/categories";
 import { useEffect, useState } from "react";
@@ -6,6 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+
+export async function loader() {
+  const res = await axios.get("/api/category");
+  return res;  // Ensure you return the data part of the response
+}
 
 const CourseCard = ({ course }) => (
   <Link
@@ -24,6 +28,7 @@ const CourseCard = ({ course }) => (
     <div className="p-4">
       <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
       <p className="text-gray-600">{course.description}</p>
+      {/* <p className="text-gray-800 mt-2">${course.price}</p> */}
     </div>
   </Link>
 );
@@ -34,29 +39,26 @@ const Search = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  useEffect(() => {
-    const fetchCoursesAndCategories = async () => {
-      try {
-        const [courseRes, categoryRes] = await Promise.all([
-          fetch('/api/coursesfetch'),
-          axios.get('/api/category')
-        ]);
-
-        const courseData = await courseRes.json();
-        if (courseData.success) {
-          setCourses(courseData.data);
-        }
-
-        const categoryData = categoryRes.data;
-        setCateg(categoryData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
+  const fetchCourses = async () => {
+    try {
+      const res = await fetch('/api/coursesfetch');
+      const data = await res.json();
+      if (data.success) {
+        setCourses(data.data);
       }
-    };
+    } catch (error) {
+      console.error('Error fetching courses:', error);
+    }
+  };
 
-    fetchCoursesAndCategories();
+  useEffect(() => {
+    const fetchData = async () => {
+      const categoryData = await loader();
+      setCateg(categoryData.data);
+      await fetchCourses();
+      setLoading(false);
+    };
+    fetchData();
   }, []);
 
   const handleLogout = async () => {
@@ -94,3 +96,4 @@ const Search = () => {
 };
 
 export default Search;
+
