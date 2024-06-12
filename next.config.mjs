@@ -4,7 +4,8 @@ const nextConfig = {
         remotePatterns: [
           { hostname: 'utfs.io' },
           {hostname : 'lh3.googleusercontent.com'},
-          {hostname : 'img.freepik.com'}
+          {hostname : 'img.freepik.com'},
+          {hostname: 'miro.medium.com'},
           // Assumes HTTP and HTTPS by default
         ]
       }
