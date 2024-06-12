@@ -26,7 +26,7 @@ useEffect(() => {
     setCourse(ans.data.courses)
   }
   fetchData();
-},[userid]);
+},[]);
    
 const handleLogout = async () => {
   await signOut({ redirect: false, callbackUrl: '/signup' });
