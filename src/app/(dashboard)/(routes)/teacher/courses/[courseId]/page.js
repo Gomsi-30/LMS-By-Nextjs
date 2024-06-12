@@ -42,7 +42,7 @@ const Courseid = ({ params }) => {
     const fetchCourseData = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/userdata",
+          "/api/userdata",
           { userid }
         );
         setCourseData(response.data);

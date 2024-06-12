@@ -10,7 +10,7 @@ import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export async function loader() {
-    const res = await axios.get("http://localhost:3000/api/category");
+    const res = await axios.get("/api/category");
     return res;  // Ensure you return the data part of the response
 }
 
