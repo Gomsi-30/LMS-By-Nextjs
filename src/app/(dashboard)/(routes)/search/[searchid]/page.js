@@ -1,4 +1,3 @@
-// pages/courses/[id].js
 "use client"
 
 import { useState, useEffect } from 'react';
@@ -43,25 +42,13 @@ const ChapterItem = ({ chapter }) => {
           <Typing speed={20} eraseSpeed={20} text={chapter.description} />
         </p>
       )}
-      {chapter.isFree ? (
-        chapter.videoUrl && (
+     
+{ chapter.videoUrl && 
           <video controls className="w-full h-auto mt-2 rounded-lg shadow-sm">
             <source src={chapter.videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        )
-      ) : (
-        <div className="relative w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center mt-2">
-          <div className="absolute inset-0 rounded-lg overflow-hidden">
-            <Image
-              src={chapter.videoUrl}
-              alt={chapter.title}
-              className="object-cover w-full h-full opacity-50"
-            />
-          </div>
-          <FaLock className="text-gray-500 text-3xl z-10" />
-        </div>
-      )}
+      }
     </div>
   );
 };
@@ -117,10 +104,10 @@ const CourseDetailsPage = ({ params }) => {
         <div className="mb-6">
           <h2 className="text-2xl font-semibold mb-4 animated-gradient">Attachments</h2>
           <ul>
-            {course.attachments.map((attachment, index) => (
-              <li key={index} className="mb-2">
+            {course.attachments.map((attachment) => (
+              <li key={attachment._id} className="mb-2">
                 <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
-                  {attachment.name || attachment.url}
+                  {attachment.name}
                 </a>
               </li>
             ))}
@@ -137,4 +124,5 @@ const CourseDetailsPage = ({ params }) => {
 };
 
 export default CourseDetailsPage;
+
 
