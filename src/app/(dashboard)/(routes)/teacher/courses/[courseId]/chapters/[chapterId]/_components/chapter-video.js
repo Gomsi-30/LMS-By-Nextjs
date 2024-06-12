@@ -27,7 +27,7 @@ const Chaptervideo = ({ chapter,id }) => {
     console.log(res.data.muxdatas)
       setD(res.data.muxdatas)
       toast({
-        description: "Image added succesfullly",
+        description: "Video added succesfullly",
       });     
   };
 
