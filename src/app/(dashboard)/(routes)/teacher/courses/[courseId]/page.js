@@ -67,7 +67,6 @@ const Courseid = ({ params }) => {
   const requiredFields = [
     courseData.title,
     courseData.description,
-    courseData.price,
     courseData.imageUrl,
     courseData.categoryId,
     // courseData.chapters.some(chap=>chap.isPublished)
